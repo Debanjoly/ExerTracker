@@ -17,7 +17,7 @@ function CreateExercise(){
       //const abortController = new AbortController()
       // const signal = abortController.signal
 //{ signal: signal }
-      axios.get('http://localhost:5000/users/')
+      axios.get('/users/')
       .then(response => {
         if (response.data.length > 0) {
           setUsername(response.data[0].username);
@@ -55,7 +55,7 @@ function CreateExercise(){
         }
         console.log(exercise);
 
-         axios.post("http://localhost:5000/exercises/add", exercise)
+         axios.post("/exercises/add", exercise)
            .then((res) => console.log(res.data));
         window.location= "/";
      }

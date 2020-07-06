@@ -12,7 +12,7 @@ function ExerciseList() {
     const abortController = new AbortController()
     const signal = abortController.signal
    // { signal: signal }
-    axios.get('http://localhost:5000/exercises/', { signal: signal })
+    axios.get('/exercises/', { signal: signal })
       .then(response => {
         setExercises( response.data )
       })
@@ -25,7 +25,7 @@ function ExerciseList() {
   },[]);
 
    function deleteExercise(id) {
-        axios.delete('http://localhost:5000/exercises/'+id)
+        axios.delete('/exercises/'+id)
         .then(response => { console.log(response.data)});
         setExercises(exercises.filter((exerciseItem) => exerciseItem._id !== id));
   }

@@ -17,7 +17,7 @@ function CreateExercise(props) {
         // const abortController= new AbortController()
         // const signal=abortController.signal
         // { signal: signal }
-        axios.get('http://localhost:5000/exercises/'+props.match.params.id)
+        axios.get('/exercises/'+props.match.params.id)
             .then(response => {
                 setUsername(response.data.username);
                 setDescription(response.data.description);
@@ -28,7 +28,7 @@ function CreateExercise(props) {
                 console.log(error);
             })
 
-        axios.get('http://localhost:5000/users/')
+        axios.get('/users/')
             .then(response => {
                 if (response.data.length > 0) {
                     setUsername({ username: response.data[0].username });
@@ -68,7 +68,7 @@ function CreateExercise(props) {
         }
         console.log(exercise);
 
-        axios.post('http://localhost:5000/exercises/update/'+props.match.params.id, exercise)
+        axios.post('/exercises/update/'+props.match.params.id, exercise)
             .then((res) => {
                 console.log(res.data)
                  setUsername(res.data.username);
